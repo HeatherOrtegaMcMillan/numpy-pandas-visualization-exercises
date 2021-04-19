@@ -25,6 +25,14 @@ pos_num[pos_num % 2 ==0]
 pos_num[pos_num % 2 ==0].shape
     # Out: 3
 
+# another way to do it (From Zach's solutions)
+positive_mask = a > 0
+even_mask = a % 2 == 0
+a[positive_mask & even_mask].shape[0]
+# Or...
+positives = a[a > 0]
+positive_evens = positives[positives % 2 == 0]
+
 # 4. If you were to add 3 to each data point, how many positive numbers would there be?
 plus3 = a + 3
 plus3[plus3 > 0].shape
@@ -101,6 +109,8 @@ b = [
     [6, 7, 8]
 ]
 
+## it would take a lot of looping and nested loops
+
 product_of_b = 1
 for x in b:
     for y in x:
@@ -124,11 +134,13 @@ sum_of_b = np.sum(b)
 min_of_b = min(b[0]) if min(b[0]) <= min(b[1]) else min(b[1])
 
 min_of_b = np.min(b)
+## OR min_of_b = b.min() <----- WHY? only works when b is numpy array
 
 # Exercise 3 - refactor the following maximum calculation to find the answer with numpy.
 max_of_b = max(b[0]) if max(b[0]) >= max(b[1]) else max(b[1])
 
 max_of_b = np.max(b)
+## or max_of_b = b.max()
 
 # Exercise 4 - refactor the following using numpy to find the mean of b
 mean_of_b = (sum(b[0]) + sum(b[1])) / (len(b[0]) + len(b[1]))
@@ -186,7 +198,7 @@ b.reshape(1,6)
     # array([[3, 4, 5, 6, 7, 8]])
 
 # Exercise 12 - reshape the array b to be a list of 6 lists, each containing only 1 number (6 x 1)
-b.reshape(6,1)
+b.reshape(6,1) # What's the difference between this and .reshape(6, -1) is -1 an autofill? 
     # array([[3],
     #        [4],
     #        [5],
@@ -208,6 +220,7 @@ min_of_c = np.min(c) #1
 max_of_c = np.max(c) #9
 sum_of_c = np.sum(c) #45
 product_of_c = np.product(c) #362880
+#same thing here, all these can be flipped to c.numpyfunction() because we converted it to a numpy array
 
 # Exercise 2 - Determine the standard deviation of c.
 np.std(c) #2.581988897471611
@@ -232,9 +245,11 @@ np.dot(c, c)
 
 # Exercise 7 - Write the code necessary to sum up the result of c times c transposed. Answer should be 261
 np.sum(c * np.transpose(c))
+# can also do (c * np.transpose(c)).sum()
 
 # Exercise 8 - Write the code necessary to determine the product of c times c transposed. Answer should be 131681894400.
-np.product(c * np.transpose(c))
+
+# i used product spelled all the way out and it worked
 
 ## Setup 4
 d = [
@@ -290,14 +305,17 @@ len(np.unique(d))
 
 # Exercise 8 - Print out the shape of d.
 d.shape
-(3, 6)
+# (3, 6)
 
 # Exercise 9 - Transpose and then print out the shape of d.
-np.transpose(d).shape
-(6, 3)
+np.transpose(d).shape 
+# or d.transpose().shape
+# (6, 3)
 
 # Exercise 10 - Reshape d into an array of 9 x 2
 np.reshape(d, (9, 2))
+# or d.reshape(9,2)
+
     # array([[ 90,  30],
     #        [ 45,   0],
     #        [120, 180],
