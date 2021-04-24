@@ -75,14 +75,61 @@ fruits_series.str.count('[aeiou]')
 fruits_with_more_two_vowels_series = fruits_series[fruits_series.str.count('[aeiou]') > 2]
 
 # Exercise 4 - make a variable named fruits_with_only_two_vowels. The result should be ['mango', 'kiwi', 'strawberry']
+fruits_with_only_two_vowels = []
+for fruit in fruits:
+    if count_vowels(fruit) == 2:
+        fruits_with_only_two_vowels.append(fruit)
+fruits_with_only_two_vowels
+
+fruits_with_only_two_vowels = [fruit for fruit in fruits if count_vowels(fruit) == 2]
+fruits_with_only_two_vowels
+
+fruits_with_only_two_vowels_series = fruits_series[fruits_series.str.count('[aeiou]') == 2]
+fruits_with_only_two_vowels_series
 
 # Exercise 5 - make a list that contains each fruit with more than 5 characters
+long_fruits = []
+for fruit in fruits:
+    if len(fruit) > 5:
+        long_fruits.append(fruit)
+long_fruits
+
+long_fruits = [fruit for fruit in fruits if len(fruit) > 5]
+long_fruits
+
+long_fruits_series = fruits_series[fruits_series.str.len() > 5]
+long_fruits_series
 
 # Exercise 6 - make a list that contains each fruit with exactly 5 characters
+fruit_fives = []
+for fruit in fruits:
+    if len(fruit) == 5:
+        fruit_fives.append(fruit)
+fruit_fives
+
+fruit_fives = [fruit for fruit in fruits if len(fruit) == 5]
+fruit_fives
+
+fruit_fives_series = fruits_series[fruits_series.str.len() == 5]
+fruit_fives_series
 
 # Exercise 7 - Make a list that contains fruits that have less than 5 characters
+less_5_fruits = []
+for fruit in fruits:
+    if len(fruit) < 5:
+        less_5_fruits.append(fruit)
+less_5_fruits
+
+less_5_fruits = [fruit for fruit in fruits if len(fruit) < 5]
+less_5_fruits
+
+less_5_fruits_series = fruits_series[fruits_series.str.len() < 5]
+less_5_fruits_series
+
 
 # Exercise 8 - Make a list containing the number of characters in each fruit. Output would be [5, 4, 10, etc... ]
+
+
 
 # Exercise 9 - Make a variable named fruits_with_letter_a that contains a list of only the fruits that contain the letter "a"
 
