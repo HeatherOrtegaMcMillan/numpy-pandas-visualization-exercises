@@ -128,20 +128,103 @@ less_5_fruits_series
 
 
 # Exercise 8 - Make a list containing the number of characters in each fruit. Output would be [5, 4, 10, etc... ]
+fruit_lengths = []
+for fruit in fruits:
+    fruit_lengths.append(len(fruit))
+fruit_lengths
 
+fruit_lengths = [len(fruit) for fruit in fruits]
+fruit_lengths
 
+#get a series with the length of each fruit
+fruit_lengths_series = fruits_series.str.len()
+#turn the series into a list of the values of the lengths of the fruits
+fruit_lengths_series = list(fruit_lengths_series.values)
+fruit_lengths_series
 
 # Exercise 9 - Make a variable named fruits_with_letter_a that contains a list of only the fruits that contain the letter "a"
+fruits_with_letter_a = []
+for fruit in fruits:
+    if 'a' in fruit:
+        fruits_with_letter_a.append(fruit)
+fruits_with_letter_a
+
+fruits_with_letter_a = [fruit for fruit in fruits if 'a' in fruit]
+fruits_with_letter_a
+
+fruits_with_letter_a_series = fruits_series[fruits_series.str.contains('a')]
+fruits_with_letter_a_series
 
 # Exercise 10 - Make a variable named even_numbers that holds only the even numbers 
 
+even_numbers = []
+for num in numbers:
+    if num % 2 == 0:
+        even_numbers.append(num)
+even_numbers
+
+even_numbers = [num for num in numbers if num % 2 == 0]
+even_numbers
+
+# convert numbers list into series
+numbers_series = pd.Series(numbers)
+
+even_numbers_series = numbers_series[numbers_series % 2 == 0]
+even_numbers_series
+
+
 # Exercise 11 - Make a variable named odd_numbers that holds only the odd numbers
+
+odd_numbers = []
+for num in numbers:
+    if num % 2 == 1:
+        odd_numbers.append(num)
+odd_numbers
+
+odd_numbers = [num for num in numbers if num % 2 != 0]
+odd_numbers
+
+odd_numbers_series = numbers_series[numbers_series % 2 == 1]
+odd_numbers_series
 
 # Exercise 12 - Make a variable named positive_numbers that holds only the positive numbers
 
+positive_numbers = []
+for num in numbers:
+    if num > 0:
+        positive_numbers.append(num)
+positive_numbers
+
+positive_numbers = [num for num in numbers if num > 0]
+positive_numbers
+
+positive_numbers_series = numbers_series[numbers_series > 0]
+positive_numbers_series
+
 # Exercise 13 - Make a variable named negative_numbers that holds only the negative numbers
 
+negative_numbers = []
+for num in numbers:
+    if num < 0:
+        negative_numbers.append(num)
+negative_numbers
+
+negative_numbers = [num for num in numbers if num < 0]
+negative_numbers
+
+negative_numbers_series = numbers_series[numbers_series < 0]
+negative_numbers_series
+
 # Exercise 14 - use a list comprehension w/ a conditional in order to produce a list of numbers with 2 or more numerals
+nums_with_two_or_more_digits = []
+for num in numbers: 
+    if num > 9 or num < -9:
+        nums_with_two_or_more_digits.append(num)
+nums_with_two_or_more_digits
+
+nums_with_two_or_more_digits = [num for num in numbers if num > 9 or num < -9]
+nums_with_two_or_more_digits
+
 
 # Exercise 15 - Make a variable named numbers_squared that contains the numbers list with each element squared. Output is [4, 9, 16, etc...]
 
