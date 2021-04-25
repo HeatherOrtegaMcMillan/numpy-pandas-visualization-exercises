@@ -225,11 +225,58 @@ nums_with_two_or_more_digits
 nums_with_two_or_more_digits = [num for num in numbers if num > 9 or num < -9]
 nums_with_two_or_more_digits
 
+def is_two_digits(int):
+    '''
+    This function takes in an int and returns True if the int is two digits or more. Works for negative and positive numbers.
+    '''
+    if int > 9 or int < -9:
+        return True
+    else:
+        return False
+
+nums_with_two_or_more_digits_series = numbers_series[numbers_series.apply(is_two_digits)]
+nums_with_two_or_more_digits_series
 
 # Exercise 15 - Make a variable named numbers_squared that contains the numbers list with each element squared. Output is [4, 9, 16, etc...]
+numbers_squared = []
+for num in numbers:
+    numbers_squared.append(num ** 2)
+numbers_squared
+
+numbers_squared = [num ** 2 for num in numbers]
+numbers_squared
+
+numbers_squared_series = numbers_series ** 2
+numbers_squared_series
 
 # Exercise 16 - Make a variable named odd_negative_numbers that contains only the numbers that are both odd and negative.
 
+odd_negative_numbers = []
+for num in numbers:
+    if num < 0 and num % 2 != 0:
+        odd_negative_numbers.append(num)
+odd_negative_numbers
+
+odd_negative_numbers = [num for num in numbers if num < 0 and num % 2 != 0]
+odd_negative_numbers
+
+#create variable to store negative numbers
+neg_nums = numbers_series[numbers_series < 0]
+# use previously created neg nums variable to make boolean mask for odd numbers
+neg_odd_nums_series = neg_nums[neg_nums % 2 != 0]
+neg_odd_nums_series
+
 # Exercise 17 - Make a variable named numbers_plus_5. In it, return a list containing each number plus five. 
+
+numbers_plus_5 = []
+for num in numbers:
+    numbers_plus_5.append(num + 5)
+numbers_plus_5
+
+numbers_plus_5 = [num + 5 for num in numbers]
+numbers_plus_5
+
+numbers_plus_5_series = numbers_series + 5
+numbers_plus_5_series
 
 # BONUS Make a variable named "primes" that is a list containing the prime numbers in the numbers list. *Hint* you may want to make or find a helper function that determines if a given number is prime or not.
